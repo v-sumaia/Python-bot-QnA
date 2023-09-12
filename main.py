@@ -1,13 +1,14 @@
 import functions as fun
-import variables
+from variables import *
 
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.language.conversations import ConversationAnalysisClient
 
-endpoint = variables.get('API_ENDPOINT')
-credential = AzureKeyCredential(variables.get('API_KEY'))
+endpoint = API_ENDPOINT
+credential = AzureKeyCredential(API_KEY)
 client = ConversationAnalysisClient(endpoint, credential)
 
+print(endpoint)
 print('Bot: say something ')
 while True:
     response=input('You: ')
