@@ -11,15 +11,20 @@ def main():
 
         response = ''
         print('Bot: say something.')
-        while response != 'exit':
+        while True:
             response = input('You: ')
-            output = client.get_answers(
-                question=response,
-                project_name="QnA-bot",
-                deployment_name="test"
-            )
-            for candidate in output.answers:
-                print("Bot: {}".format(candidate.answer))
+            if response != 'exit' and response != 'Exit':
+                output = client.get_answers(
+                    question=response,
+                    project_name="QnA-bot",
+                    deployment_name="test"
+                )
+                for candidate in output.answers:
+                    print("Bot: {}".format(candidate.answer))
+            else:
+                print("Bot: Ok Bye")
+                exit(0)
+
     except KeyboardInterrupt:
         print('\nOk Bye')
     except TypeError:
