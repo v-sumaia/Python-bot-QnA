@@ -1,11 +1,12 @@
 import functions as fun
 import os
+import variables
 
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.language.conversations import ConversationAnalysisClient
 
-endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
-credential = AzureKeyCredential("<api-key>")
+endpoint = variables.get('API_ENDPOINT')
+credential = AzureKeyCredential(variables.get('API_KEY'))
 client = ConversationAnalysisClient(endpoint, credential)
 
 print('Bot: say something ')
