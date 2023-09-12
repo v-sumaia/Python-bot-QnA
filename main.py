@@ -1,5 +1,4 @@
 import functions as fun
-import os
 import variables
 
 from azure.core.credentials import AzureKeyCredential
