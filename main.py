@@ -8,15 +8,13 @@ def main():
         endpoint = API_ENDPOINT
         credential = AzureKeyCredential(API_KEY)
         client = ConversationAnalysisClient(endpoint, credential)
-        print('Bot: say something ')
-        while True:
-            response=input('You: ')
+        response = ''
+        print('Bot: say something.')
+        while response != 'exit':
+            response = input('You: ')
             print(f'Bot: you said ', response)
     except KeyboardInterrupt:
         print ('\nOk Bye')
-    else:
-        print ('No exceptions are caught')
 
 if __name__ == '__main__':
     main()
-
