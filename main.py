@@ -1,7 +1,5 @@
 import functions as fun
 
-#Testing response system
-
 print('Bot: say something ')
 while True:
     response=input('You: ')
