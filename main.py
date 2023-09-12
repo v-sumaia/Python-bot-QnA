@@ -1,20 +1,30 @@
 import functions as fun
 from variables import *
 from azure.core.credentials import AzureKeyCredential
-from azure.ai.language.conversations import ConversationAnalysisClient
+from azure.ai.language.questionanswering import QuestionAnsweringClient
 
 def main():
     try:
         endpoint = API_ENDPOINT
         credential = AzureKeyCredential(API_KEY)
-        client = ConversationAnalysisClient(endpoint, credential)
+        client = QuestionAnsweringClient(endpoint, credential)
+
         response = ''
         print('Bot: say something.')
         while response != 'exit':
             response = input('You: ')
-            print(f'Bot: you said ', response)
+            output = client.get_answers(
+                question=response,
+                project_name="QnA-bot",
+                deployment_name="test"
+            )
+            for candidate in output.answers:
+                print("Bot: {}".format(candidate.answer))
     except KeyboardInterrupt:
-        print ('\nOk Bye')
+        print('\nOk Bye')
+    except TypeError:
+        print('Enter a valid response.')
+
 
 if __name__ == '__main__':
     main()
