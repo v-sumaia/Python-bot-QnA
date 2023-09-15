@@ -1,14 +1,14 @@
-from os import path
-import json 
+import requests
+import json
+from variables import *
 
-def compress_file(self, filename):
-    return 0
+def get_response_from_bot(question):
 
-def import_file(filename):
-    return 0
-
-def parse_file(filename):
-    return 0
-
-def export_file(filename):
-    return 0
+    url = BOT_PREDECTION_URL
+    payload = "{ 'question': \"" + question + "\"" "}"
+    headers = {
+    'Ocp-Apim-Subscription-Key': 'ad9796e991994837aebc45e676ea95b5',
+    'Content-Type': 'application/json'
+    }
+    response = requests.request("POST", url, headers=headers, data=payload)
+    return response.json()["answers"]
