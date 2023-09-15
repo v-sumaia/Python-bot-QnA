@@ -1,5 +1,4 @@
 import requests
-import json
 from variables import *
 
 def get_response_from_bot(question):
