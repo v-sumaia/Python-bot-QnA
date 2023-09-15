@@ -1,4 +1,4 @@
-import functions as fun
+#import functions as fun
 from variables import *
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.language.questionanswering import QuestionAnsweringClient
