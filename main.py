@@ -1,14 +1,8 @@
 import functions as fun
 from variables import *
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.language.questionanswering import QuestionAnsweringClient
 
 def main():
     try:   
-        endpoint = API_ENDPOINT
-        credential = AzureKeyCredential(API_KEY)
-        client = QuestionAnsweringClient(endpoint, credential)
-
         response = ''
         print('Bot: say something.')
         while True:
